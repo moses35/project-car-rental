@@ -7,11 +7,7 @@ import {
   Accent,
 } from 'components/AdvertsList/AdvertsList.styled';
 
-import { useDispatch } from 'react-redux';
-
 export const AdvertsList = ({ adverts }) => {
-  const dispatch = useDispatch();
-
   return (
     <List>
       {adverts.map(
