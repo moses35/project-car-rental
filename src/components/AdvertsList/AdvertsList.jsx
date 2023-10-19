@@ -1,11 +1,5 @@
-import {
-  List,
-  ListItem,
-  ImageBlock,
-  Image,
-  InfoBlock,
-  Accent,
-} from 'components/AdvertsList/AdvertsList.styled';
+import { List } from 'components/AdvertsList/AdvertsList.styled';
+import { AdvertsCard } from 'components/AdvertCard/AdvertCard';
 
 export const AdvertsList = ({ adverts }) => {
   return (
@@ -21,22 +15,17 @@ export const AdvertsList = ({ adverts }) => {
           type,
           accessories,
         }) => (
-          <ListItem key={id}>
-            <ImageBlock>
-              <Image src={img} width={100} alt={make} />
-            </ImageBlock>
-            <InfoBlock>
-              <p>
-                {make} <Accent>{model}</Accent>
-              </p>
-              <span>{rentalPrice}</span>
-            </InfoBlock>
-            <p>
-              {rentalCompany} | {type} | {accessories[0]}
-            </p>
-
-            <button onClick={() => null}>Load more</button>
-          </ListItem>
+          <AdvertsCard
+            key={id}
+            id={id}
+            make={make}
+            model={model}
+            img={img}
+            rentalPrice={rentalPrice}
+            rentalCompany={rentalCompany}
+            type={type}
+            accessories={accessories}
+          />
         )
       )}
     </List>

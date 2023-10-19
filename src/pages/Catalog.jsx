@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { getAdverts } from 'redux/adverts/operationsAdverts';
 import { AdvertsList } from 'components/AdvertsList/AdvertsList';
 import { selectAdverts } from 'redux/adverts/selectors';
+import { clearItems } from 'redux/adverts/advertsSlice';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,10 @@ const CatalogPage = () => {
       dispatch(getAdverts());
       valueRef.current = false;
     }
+
+    return () => {
+      dispatch(clearItems());
+    };
   }, [dispatch]);
 
   const { items } = useSelector(selectAdverts);

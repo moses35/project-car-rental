@@ -12,6 +12,20 @@ const initialState = {
 const advertsSlice = createSlice({
   name: 'adverts',
   initialState,
+  reducers: {
+    addFavorites(state, action) {
+      console.log(action.payload);
+      state.favorites.push(action.payload);
+    },
+    deleteFavorites(state, action) {
+      state.favorites = state.favorites.filter(
+        item => item.id !== action.payload
+      );
+    },
+    clearItems(state) {
+      state.items = [];
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getAdverts.fulfilled, (state, action) => {
@@ -36,3 +50,6 @@ export const persistedAdvertsSlice = persistReducer(
   advertsPersistConfig,
   advertsSlice.reducer
 );
+
+export const { clearItems, addFavorites, deleteFavorites } =
+  advertsSlice.actions;
