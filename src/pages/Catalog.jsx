@@ -25,7 +25,7 @@ const CatalogPage = () => {
     return () => {
       dispatch(clearItems());
     };
-  }, []);
+  }, [dispatch]);
 
   return <AdvertsList adverts={items} loadMore={loadMore} />;
 };
