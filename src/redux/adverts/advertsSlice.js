@@ -7,6 +7,7 @@ const initialState = {
   items: [],
   favorites: [],
   isLoading: false,
+  countOfItems: 8,
 };
 
 const advertsSlice = createSlice({
@@ -14,7 +15,6 @@ const advertsSlice = createSlice({
   initialState,
   reducers: {
     addFavorites(state, action) {
-      console.log(action.payload);
       state.favorites.push(action.payload);
     },
     deleteFavorites(state, action) {
@@ -31,6 +31,7 @@ const advertsSlice = createSlice({
       .addCase(getAdverts.fulfilled, (state, action) => {
         state.items.push(...action.payload);
         state.isLoading = false;
+        state.countOfItems = action.payload.length;
       })
       .addCase(getAdverts.pending, state => {
         state.isLoading = true;

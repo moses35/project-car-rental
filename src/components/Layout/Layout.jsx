@@ -1,18 +1,18 @@
-import Header from 'components/AppBar/AppBar';
+import SideBar from 'components/SideBar/SideBar';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { MainContainer } from 'components/MainContainer/MainContainer';
 
+import { MainBlock, Main } from './Layout.styled';
 const Layout = () => {
   return (
-    <>
-      <Header />
-      <MainContainer>
-        <Suspense>
+    <MainBlock>
+      <SideBar />
+      <Main>
+        <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
-      </MainContainer>
-    </>
+      </Main>
+    </MainBlock>
   );
 };
 export default Layout;

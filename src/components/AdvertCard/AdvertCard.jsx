@@ -5,6 +5,9 @@ import {
   InfoBlock,
   Accent,
   Icon,
+  AboutCar,
+  CarBrand,
+  CarPrice,
 } from 'components/AdvertCard/AdvertCard.styled';
 import heart from '../../assets/heart.svg';
 import heartActive from '../../assets/heartActive.svg';
@@ -69,14 +72,15 @@ export const AdvertsCard = ({
         </Icon>
       </ImageBlock>
       <InfoBlock>
-        <p>
+        <CarBrand>
           {make} <Accent>{model}</Accent>
-        </p>
-        <span>{rentalPrice}</span>
+        </CarBrand>
+        <CarPrice>{rentalPrice}</CarPrice>
       </InfoBlock>
-      <p>
-        {rentalCompany} | {type} | {accessories[0]}
-      </p>
+      <AboutCar>
+        <span>{rentalCompany} </span> <span>{type}</span>
+        <span>{accessories[0]}</span>
+      </AboutCar>
 
       <button onClick={() => null}>Load more</button>
     </ListItem>
