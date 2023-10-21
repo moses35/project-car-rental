@@ -1,4 +1,8 @@
-import { List, LoadMoreBtn } from 'components/AdvertsList/AdvertsList.styled';
+import {
+  List,
+  LoadMoreBtn,
+  ListBlock,
+} from 'components/AdvertsList/AdvertsList.styled';
 import { AdvertsCard } from 'components/AdvertCard/AdvertCard';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -21,7 +25,7 @@ export const AdvertsList = ({ adverts, loadMore }) => {
   }, [countOfItems, setIsVisibleButton, location]);
 
   return (
-    <>
+    <ListBlock>
       <List>
         {adverts.map(
           ({
@@ -58,6 +62,6 @@ export const AdvertsList = ({ adverts, loadMore }) => {
           Load more
         </LoadMoreBtn>
       )}
-    </>
+    </ListBlock>
   );
 };

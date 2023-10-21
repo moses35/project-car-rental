@@ -4,16 +4,21 @@ import { getAdverts } from 'redux/adverts/operationsAdverts';
 import { AdvertsList } from 'components/AdvertsList/AdvertsList';
 import { selectAdverts } from 'redux/adverts/selectors';
 import { clearItems } from 'redux/adverts/advertsSlice';
+import { Filter } from 'components/Filter/Filter';
+import { filteredCars } from 'helpers/filteredCars';
 
 const CatalogPage = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const valueRef = useRef(true);
-  const { items } = useSelector(selectAdverts);
+
+  const { items, filter } = useSelector(selectAdverts);
+
   const loadMore = () => {
     setPage(prevPage => prevPage + 1);
     valueRef.current = true;
   };
+
   useEffect(() => {
     if (valueRef.current) {
       dispatch(getAdverts(page));
@@ -27,7 +32,14 @@ const CatalogPage = () => {
     };
   }, [dispatch]);
 
-  return <AdvertsList adverts={items} loadMore={loadMore} />;
+  let cars = filteredCars(filter, items);
+
+  return (
+    <>
+      <Filter />
+      {cars && <AdvertsList adverts={cars} loadMore={loadMore} />}
+    </>
+  );
 };
 
 export default CatalogPage;

@@ -8,6 +8,7 @@ const initialState = {
   favorites: [],
   isLoading: false,
   countOfItems: 8,
+  filter: null,
 };
 
 const advertsSlice = createSlice({
@@ -24,6 +25,12 @@ const advertsSlice = createSlice({
     },
     clearItems(state) {
       state.items = [];
+    },
+    clearSelectedCar(state) {
+      state.selectedCar = [];
+    },
+    addFilter(state, action) {
+      state.filter = { ...action.payload };
     },
   },
   extraReducers: builder => {
@@ -52,5 +59,5 @@ export const persistedAdvertsSlice = persistReducer(
   advertsSlice.reducer
 );
 
-export const { clearItems, addFavorites, deleteFavorites } =
+export const { addFilter, clearItems, addFavorites, deleteFavorites } =
   advertsSlice.actions;

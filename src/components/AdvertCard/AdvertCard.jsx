@@ -15,6 +15,8 @@ import { useEffect, useState } from 'react';
 import { addFavorites, deleteFavorites } from 'redux/adverts/advertsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAdverts } from 'redux/adverts/selectors';
+import { Modal } from 'components/Modal/Modal';
+import unknown from '../../assets/unknown.png';
 
 export const AdvertsCard = ({
   id,
@@ -29,6 +31,7 @@ export const AdvertsCard = ({
   const { favorites } = useSelector(selectAdverts);
   const dispatch = useDispatch();
   const [isLikeActive, setIsLikeActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const favorite = favorites.find(item => item.id === id);
@@ -37,10 +40,14 @@ export const AdvertsCard = ({
     }
   }, [favorites, id]);
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <ListItem>
       <ImageBlock>
-        <Image src={img} alt={make} />
+        <Image src={img || unknown} alt={make} />
         <Icon
           onClick={() => {
             if (!isLikeActive) {
@@ -82,7 +89,16 @@ export const AdvertsCard = ({
         <span>{accessories[0]}</span>
       </AboutCar>
 
-      <button onClick={() => null}>Load more</button>
+      <button
+        onClick={() => {
+          setIsOpen(true);
+        }}
+      >
+        Load more
+      </button>
+      {isOpen && (
+        <Modal closeModal={closeModal} id={id} img={img} model={model} />
+      )}
     </ListItem>
   );
 };
