@@ -80,7 +80,11 @@ export const RentalInfo = styled.p`
   }
 `;
 
-export const RentalBtn = styled.button`
+export const RentalBtn = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   margin: 0;
   width: 168px;
   height: 44px;
