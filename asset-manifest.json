@@ -1,24 +1,28 @@
 {
   "files": {
-    "main.css": "/project-car-rental/static/css/main.d5ee329b.css",
-    "main.js": "/project-car-rental/static/js/main.456dd1e5.js",
-    "static/js/415.7221541d.chunk.js": "/project-car-rental/static/js/415.7221541d.chunk.js",
-    "static/js/902.65ea9f31.chunk.js": "/project-car-rental/static/js/902.65ea9f31.chunk.js",
-    "static/js/880.85f8d44c.chunk.js": "/project-car-rental/static/js/880.85f8d44c.chunk.js",
+    "main.css": "/project-car-rental/static/css/main.385dcfb9.css",
+    "main.js": "/project-car-rental/static/js/main.b9d3ab0d.js",
+    "static/js/333.0f85713a.chunk.js": "/project-car-rental/static/js/333.0f85713a.chunk.js",
+    "static/js/859.6647d664.chunk.js": "/project-car-rental/static/js/859.6647d664.chunk.js",
+    "static/js/395.91c9d154.chunk.js": "/project-car-rental/static/js/395.91c9d154.chunk.js",
     "static/js/887.940143ec.chunk.js": "/project-car-rental/static/js/887.940143ec.chunk.js",
+    "static/js/618.df0e1eab.chunk.js": "/project-car-rental/static/js/618.df0e1eab.chunk.js",
+    "static/media/Main.jpg": "/project-car-rental/static/media/Main.ab291b26e48ddc40a6a0.jpg",
     "static/media/unknown.png": "/project-car-rental/static/media/unknown.6402404b670e849a17eb.png",
     "static/media/heart.svg": "/project-car-rental/static/media/heart.282d936f414f4c6884ab9306a91dad67.svg",
     "static/media/heartActive.svg": "/project-car-rental/static/media/heartActive.97847e9195943f61800c97807e735d4f.svg",
     "index.html": "/project-car-rental/index.html",
-    "main.d5ee329b.css.map": "/project-car-rental/static/css/main.d5ee329b.css.map",
-    "main.456dd1e5.js.map": "/project-car-rental/static/js/main.456dd1e5.js.map",
-    "415.7221541d.chunk.js.map": "/project-car-rental/static/js/415.7221541d.chunk.js.map",
-    "902.65ea9f31.chunk.js.map": "/project-car-rental/static/js/902.65ea9f31.chunk.js.map",
-    "880.85f8d44c.chunk.js.map": "/project-car-rental/static/js/880.85f8d44c.chunk.js.map",
-    "887.940143ec.chunk.js.map": "/project-car-rental/static/js/887.940143ec.chunk.js.map"
+    "static/media/close.svg": "/project-car-rental/static/media/close.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
+    "main.385dcfb9.css.map": "/project-car-rental/static/css/main.385dcfb9.css.map",
+    "main.b9d3ab0d.js.map": "/project-car-rental/static/js/main.b9d3ab0d.js.map",
+    "333.0f85713a.chunk.js.map": "/project-car-rental/static/js/333.0f85713a.chunk.js.map",
+    "859.6647d664.chunk.js.map": "/project-car-rental/static/js/859.6647d664.chunk.js.map",
+    "395.91c9d154.chunk.js.map": "/project-car-rental/static/js/395.91c9d154.chunk.js.map",
+    "887.940143ec.chunk.js.map": "/project-car-rental/static/js/887.940143ec.chunk.js.map",
+    "618.df0e1eab.chunk.js.map": "/project-car-rental/static/js/618.df0e1eab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5ee329b.css",
-    "static/js/main.456dd1e5.js"
+    "static/css/main.385dcfb9.css",
+    "static/js/main.b9d3ab0d.js"
   ]
 }
