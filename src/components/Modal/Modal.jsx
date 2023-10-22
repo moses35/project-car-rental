@@ -5,7 +5,24 @@ import { createPortal } from 'react-dom';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ closeModal, id, img, model }) => {
+export const Modal = ({
+  closeModal,
+  id,
+  img,
+  model,
+  make,
+  year,
+  address,
+  fuelConsumption,
+  engineSize,
+  type,
+  description,
+  functionalities,
+  accessories,
+  rentalConditions,
+  mileage,
+  rentalPrice,
+}) => {
   const handleBackdropClick = e => {
     if (e.currentTarget === e.target) {
       closeModal();
@@ -29,7 +46,25 @@ export const Modal = ({ closeModal, id, img, model }) => {
   return createPortal(
     <Overlay onClick={handleBackdropClick}>
       <ModalWindow>
-        <ModalCard key={id} id={id} img={img} model={model} />
+        <ModalCard
+          key={id}
+          id={id}
+          closeModal={closeModal}
+          img={img}
+          model={model}
+          make={make}
+          year={year}
+          address={address}
+          fuelConsumption={fuelConsumption}
+          engineSize={engineSize}
+          type={type}
+          description={description}
+          functionalities={functionalities}
+          accessories={accessories}
+          rentalConditions={rentalConditions}
+          mileage={mileage}
+          rentalPrice={rentalPrice}
+        />
       </ModalWindow>
     </Overlay>,
     modalRoot

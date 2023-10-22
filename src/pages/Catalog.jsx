@@ -12,7 +12,7 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const valueRef = useRef(true);
 
-  const { items, filter } = useSelector(selectAdverts);
+  const { items, filter, allAdverts } = useSelector(selectAdverts);
 
   const loadMore = () => {
     setPage(prevPage => prevPage + 1);
@@ -32,7 +32,7 @@ const CatalogPage = () => {
     };
   }, [dispatch]);
 
-  let cars = filteredCars(filter, items);
+  let cars = filteredCars(filter, items, allAdverts);
 
   return (
     <>

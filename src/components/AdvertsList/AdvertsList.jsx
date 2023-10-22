@@ -10,7 +10,7 @@ import { selectAdverts } from 'redux/adverts/selectors';
 import { useLocation } from 'react-router-dom';
 
 export const AdvertsList = ({ adverts, loadMore }) => {
-  const { countOfItems } = useSelector(selectAdverts);
+  const { countOfItems, isHidden } = useSelector(selectAdverts);
   const location = useLocation();
   const [isVisibleButton, setIsVisibleButton] = useState(true);
 
@@ -18,11 +18,12 @@ export const AdvertsList = ({ adverts, loadMore }) => {
     if (
       location.pathname === '/favorites' ||
       countOfItems === 0 ||
-      countOfItems < 8
+      countOfItems < 8 ||
+      isHidden === false
     ) {
       setIsVisibleButton(false);
     }
-  }, [countOfItems, setIsVisibleButton, location]);
+  }, [countOfItems, setIsVisibleButton, location, isHidden]);
 
   return (
     <ListBlock>
@@ -37,6 +38,14 @@ export const AdvertsList = ({ adverts, loadMore }) => {
             rentalCompany,
             type,
             accessories,
+            year,
+            address,
+            fuelConsumption,
+            engineSize,
+            description,
+            functionalities,
+            rentalConditions,
+            mileage,
           }) => (
             <AdvertsCard
               key={id}
@@ -48,6 +57,14 @@ export const AdvertsList = ({ adverts, loadMore }) => {
               rentalCompany={rentalCompany}
               type={type}
               accessories={accessories}
+              year={year}
+              address={address}
+              fuelConsumption={fuelConsumption}
+              engineSize={engineSize}
+              description={description}
+              functionalities={functionalities}
+              rentalConditions={rentalConditions}
+              mileage={mileage}
             />
           )
         )}

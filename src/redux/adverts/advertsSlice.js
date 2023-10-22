@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { getAdverts } from './operationsAdverts';
+import { getAdverts, getAllAdverts } from './operationsAdverts';
 
 const initialState = {
+  allAdverts: [],
   items: [],
   favorites: [],
-  isLoading: false,
+  isHidden: true,
   countOfItems: 8,
   filter: null,
 };
@@ -31,20 +32,27 @@ const advertsSlice = createSlice({
     },
     addFilter(state, action) {
       state.filter = { ...action.payload };
+      state.isHidden = false;
+    },
+    setHidden(state) {
+      state.isHidden = false;
     },
   },
   extraReducers: builder => {
     builder
       .addCase(getAdverts.fulfilled, (state, action) => {
         state.items.push(...action.payload);
-        state.isLoading = false;
         state.countOfItems = action.payload.length;
       })
-      .addCase(getAdverts.pending, state => {
-        state.isLoading = true;
-      })
+
       .addCase(getAdverts.rejected, state => {
-        state.isLoading = false;
+        console.log('error');
+      })
+      .addCase(getAllAdverts.fulfilled, (state, action) => {
+        state.allAdverts.push(...action.payload);
+      })
+      .addCase(getAllAdverts.rejected, state => {
+        console.log('error');
       });
   },
 });
@@ -59,5 +67,10 @@ export const persistedAdvertsSlice = persistReducer(
   advertsSlice.reducer
 );
 
-export const { addFilter, clearItems, addFavorites, deleteFavorites } =
-  advertsSlice.actions;
+export const {
+  setHidden,
+  addFilter,
+  clearItems,
+  addFavorites,
+  deleteFavorites,
+} = advertsSlice.actions;

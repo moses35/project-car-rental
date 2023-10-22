@@ -7,9 +7,10 @@ export const Main = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: var(--page-bg-color);
+  background-color: var(--button-text-color);
   padding-top: 64px;
   padding-bottom: 40px;
   width: 1440px;
   margin: 0 auto;
+  padding-top: 80px;
 `;
