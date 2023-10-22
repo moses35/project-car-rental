@@ -2,6 +2,7 @@ import {
   List,
   LoadMoreBtn,
   ListBlock,
+  NothingFound,
 } from 'components/AdvertsList/AdvertsList.styled';
 import { AdvertsCard } from 'components/AdvertCard/AdvertCard';
 import { useEffect, useState } from 'react';
@@ -26,59 +27,65 @@ export const AdvertsList = ({ adverts, loadMore }) => {
   }, [countOfItems, setIsVisibleButton, location, isHidden]);
 
   return (
-    <ListBlock>
-      <List>
-        {adverts.map(
-          ({
-            id,
-            make,
-            model,
-            img,
-            rentalPrice,
-            rentalCompany,
-            type,
-            accessories,
-            year,
-            address,
-            fuelConsumption,
-            engineSize,
-            description,
-            functionalities,
-            rentalConditions,
-            mileage,
-          }) => (
-            <AdvertsCard
-              key={id}
-              id={id}
-              make={make}
-              model={model}
-              img={img}
-              rentalPrice={rentalPrice}
-              rentalCompany={rentalCompany}
-              type={type}
-              accessories={accessories}
-              year={year}
-              address={address}
-              fuelConsumption={fuelConsumption}
-              engineSize={engineSize}
-              description={description}
-              functionalities={functionalities}
-              rentalConditions={rentalConditions}
-              mileage={mileage}
-            />
-          )
-        )}
-      </List>
-      {isVisibleButton && (
-        <LoadMoreBtn
-          onClick={() => {
-            loadMore();
-          }}
-          width={20}
-        >
-          Load more
-        </LoadMoreBtn>
+    <>
+      {adverts.length > 0 ? (
+        <ListBlock>
+          <List>
+            {adverts.map(
+              ({
+                id,
+                make,
+                model,
+                img,
+                rentalPrice,
+                rentalCompany,
+                type,
+                accessories,
+                year,
+                address,
+                fuelConsumption,
+                engineSize,
+                description,
+                functionalities,
+                rentalConditions,
+                mileage,
+              }) => (
+                <AdvertsCard
+                  key={id}
+                  id={id}
+                  make={make}
+                  model={model}
+                  img={img}
+                  rentalPrice={rentalPrice}
+                  rentalCompany={rentalCompany}
+                  type={type}
+                  accessories={accessories}
+                  year={year}
+                  address={address}
+                  fuelConsumption={fuelConsumption}
+                  engineSize={engineSize}
+                  description={description}
+                  functionalities={functionalities}
+                  rentalConditions={rentalConditions}
+                  mileage={mileage}
+                />
+              )
+            )}
+          </List>
+          {isVisibleButton && (
+            <LoadMoreBtn
+              onClick={() => {
+                loadMore();
+              }}
+              width={20}
+            >
+              Load more
+            </LoadMoreBtn>
+          )}
+        </ListBlock>
+      ) : (
+        <NothingFound>Nothing found...</NothingFound>
       )}
-    </ListBlock>
+    </>
   );
 };

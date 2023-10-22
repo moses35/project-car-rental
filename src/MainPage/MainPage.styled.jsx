@@ -20,6 +20,7 @@ export const Img = styled.img`
 export const Text = styled.p`
   font-size: 24px;
   font-weight: 700;
+  margin-top: 0;
 `;
 
 export const Button = styled(NavLink)`

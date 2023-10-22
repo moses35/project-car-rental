@@ -11,7 +11,6 @@ export const MainPage = () => {
           </Text>
           <Button to="/catalog">Find car</Button>
         </div>
-
         <Img src={car} alt="car" />
       </Block>
     </>

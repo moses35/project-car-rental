@@ -28,3 +28,8 @@ export const ListBlock = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+
+export const NothingFound = styled.p`
+  font-size: 24px;
+  font-weight: 700;
+`;
