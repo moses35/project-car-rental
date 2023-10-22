@@ -12,11 +12,7 @@ import {
 import heart from '../../assets/heart.svg';
 import heartActive from '../../assets/heartActive.svg';
 import { useEffect, useState } from 'react';
-import {
-  addFavorites,
-  deleteFavorites,
-  setHidden,
-} from 'redux/adverts/advertsSlice';
+import { addFavorites, deleteFavorites } from 'redux/adverts/advertsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAdverts } from 'redux/adverts/selectors';
 import { Modal } from 'components/Modal/Modal';
